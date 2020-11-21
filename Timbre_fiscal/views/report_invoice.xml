@@ -1,0 +1,17 @@
+<odoo>
+        <template id="timbre_invoice_report" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='total']/div/table/t" position="after">
+            <t t-if="o.amount_global_tax>0">
+                <tr>
+                    <td>
+                        <span>Timbre Fiscal</span>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="o.amount_global_tax"
+                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+    </template>
+</odoo>

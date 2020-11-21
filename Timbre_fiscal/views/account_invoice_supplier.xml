@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="global_tax_invoice_supplier_purchase_form" model="ir.ui.view">
+            <field name="name">hn.global_tax.invoice.account.move</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@class='oe_subtotal_footer']/field[@name='amount_by_group']" position="after">
+                     <field name="enable_tax" invisible="1"/>
+                       <field name="amount_global_tax" invisible="1"/>
+                    <field name="global_tax_rate" attrs="{'invisible':[('enable_tax','!=',True),('amount_global_tax','=',0)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
