@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_payment_report" model="ir.ui.view">
+            <field name="name">account.payment.document.type.search</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='partner']" position="after">
+                    <separator/>
+                    <filter string="Document Type" name="document_type" domain="[]" context="{'group_by': 'type_document_id'}"/>
+                    <separator/>
+                </xpath>
+            </field>
+        </record>
+
+       <record id="action_payment_report" model="ir.actions.act_window">
+            <field name="name">Payment Report</field>
+            <field name="res_model">account.payment</field>
+            <field name="context">{
+                'search_default_document_type': 1,
+            }</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+            
+        <menuitem action="action_payment_report" id="menu_payment_report" 
+                name="Payment Report" sequence="25" parent="account.menu_finance_reports"/>
+
+    </data>
+</odoo>

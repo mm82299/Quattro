@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="payment_report_inherit" inherit_id="account.report_payment_receipt_document">
+        <xpath expr="//div[@class='row mb64']" position="after">
+<!--            <div class="col-6" t-if="o.communication">-->
+<!--                <strong>Memo: </strong><span t-field="o.communication"/>-->
+<!--            </div>-->
+            <table class="table table-sm1">
+                    <thead>
+                        <tr>
+                            <th><span>Type piéce</span></th>
+                            <th><span>Numéro piéce</span></th>
+                            <th><span>Banque</span></th>
+                            <th><span>Echeance</span></th>
+                            <th><span>propriétaire du compte</span></th>
+                            <th><span>Montant</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.payment_lines" t-as="pay">
+                            <td><span t-field="pay.type_document_id"/></td>
+                            <td><span t-field="pay.document_number"/></td>
+                            <td><span t-field="pay.type_bank_id"/></td>
+                            <td><span t-field="pay.maturity_date"/></td>
+<!--                            <td class="text-right"><span t-esc="o._get_invoice_payment_amount(inv)" t-options="{'widget': 'monetary', 'display_currency': inv.currency_id}"/></td>-->
+                            <td><span t-field="pay.cheque_owner"/></td>
+                            <td><span t-field="pay.amount"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+        </xpath>
+    </template>
+
+
+
+
+
+</odoo>

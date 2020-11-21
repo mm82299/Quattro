@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="document_type_in_safe" model="document.type">
+            <field name="name">In Safe (the deadline is not yet reached)</field>
+            <field name="document_help">the deadline is not yet reached</field>
+        </record>
+
+        <record id="document_type_deposite" model="document.type">
+            <field name="name">Deposit to the Bank (the deadline is not yet reached)</field>
+            <field name="document_help">the deadline is not yet reached</field>
+        </record>
+
+        <record id="document_type_rejected" model="document.type">
+            <field name="name">Rejected (presented to the bank but not paid)</field>
+            <field name="document_help">presented to the bank but not paid</field>
+        </record>
+    </data>
+</odoo>
