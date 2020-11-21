@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="qty_config" name="Qty input" inherit_id="sale_product_configurator.configure">
+        <xpath expr="//div/div/t/div" position="inside">
+            <br/>
+            <h2><div class="input-group-prepend">
+                <span>Coefficient :</span>
+<!--                <span>coif_total :-</span>-->
+            </div>
+            </h2>
+            <div class="css_quantity input-group">
+                <input type="text" class="js_quantity form-control quantity" data-min="1" name="coif_total" t-att-value="coif_total" readonly=""/>
+            </div>    
+        </xpath>
+        
+    </template>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="external_layout_standard_custom" inherit_id="web.external_layout_standard">
+        <!-- footer -->
+        <xpath expr="//div[@name='financial_infos']" position="after">
+            <t t-if="o._name == 'account.move'">
+                <div t-if="o.state == 'posted'" class="text-muted">
+                    Invoice : <span t-field="o.name"/>
+                </div>
+            </t>
+            <t t-if="o._name == 'sale.order'">
+                <div t-if="o.state == 'draft'" class="text-muted">
+                    Quotations : <span t-field="o.name"/>
+                </div>
+                <div t-if="o.state == 'sale'" class="text-muted">
+                    Sales Orders : <span t-field="o.name"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="external_layout_background_custom" inherit_id="web.external_layout_background">
+        <!-- footer -->
+        <xpath expr="//div[@t-field='company.report_footer']" position="after">
+            <t t-if="o._name == 'account.move'">
+                <div t-if="o.state == 'posted'" class="text-muted">
+                    Invoice : <span t-field="o.name"/>
+                </div>
+            </t>
+            <t t-if="o._name == 'sale.order'">
+                <div t-if="o.state == 'draft'" class="text-muted">
+                    Quotations : <span t-field="o.name"/>
+                </div>
+                <div t-if="o.state == 'sale'" class="text-muted">
+                    Sales Orders : <span t-field="o.name"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
